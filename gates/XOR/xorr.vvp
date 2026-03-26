@@ -1,0 +1,55 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x64fa46c7be30 .scope module, "xorr_tb" "xorr_tb" 2 3;
+ .timescale -9 -12;
+v0x64fa46ca1d90_0 .var "a", 3 0;
+v0x64fa46ca1e80_0 .var "b", 3 0;
+v0x64fa46ca1f50_0 .net "c", 3 0, L_0x64fa46ca2050;  1 drivers
+S_0x64fa46c8f6b0 .scope module, "dut" "xorr" 2 8, 3 1 0, S_0x64fa46c7be30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /OUTPUT 4 "c";
+L_0x64fa46ca2050 .functor XOR 4, v0x64fa46ca1d90_0, v0x64fa46ca1e80_0, C4<0000>, C4<0000>;
+v0x64fa46c8f8e0_0 .net "a", 3 0, v0x64fa46ca1d90_0;  1 drivers
+v0x64fa46ca1b70_0 .net "b", 3 0, v0x64fa46ca1e80_0;  1 drivers
+v0x64fa46ca1c50_0 .net "c", 3 0, L_0x64fa46ca2050;  alias, 1 drivers
+    .scope S_0x64fa46c7be30;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "xor_gate.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x64fa46c7be30 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x64fa46c7be30;
+T_1 ;
+    %vpi_call 2 16 "$monitor", "At time t=%ot, a= %b, b=%b | c = %b", $time, v0x64fa46ca1d90_0, v0x64fa46ca1e80_0, v0x64fa46ca1f50_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x64fa46c7be30;
+T_2 ;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v0x64fa46ca1d90_0, 0, 4;
+    %pushi/vec4 12, 0, 4;
+    %store/vec4 v0x64fa46ca1e80_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 14, 0, 4;
+    %store/vec4 v0x64fa46ca1d90_0, 0, 4;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v0x64fa46ca1e80_0, 0, 4;
+    %delay 10000, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xorr_tb.v";
+    "xorr.v";

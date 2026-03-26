@@ -1,0 +1,47 @@
+$date
+	Thu Mar 26 09:24:09 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module xnorr_tb $end
+$var wire 4 ! c [3:0] $end
+$var reg 4 " a [3:0] $end
+$var reg 4 # b [3:0] $end
+$scope module dut $end
+$var wire 4 $ a [3:0] $end
+$var wire 4 % b [3:0] $end
+$var wire 4 & c [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11 &
+b101 %
+b1001 $
+b101 #
+b1001 "
+b11 !
+$end
+#10000
+b1011 !
+b1011 &
+b1011 #
+b1011 %
+b1111 "
+b1111 $
+#20000
+b1101 !
+b1101 &
+b1 #
+b1 %
+b11 "
+b11 $
+#30000
