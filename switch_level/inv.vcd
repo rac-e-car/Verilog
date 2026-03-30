@@ -1,0 +1,30 @@
+$date
+	Mon Mar 30 02:28:40 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module switch_inv_tb $end
+$var wire 1 ! o $end
+$var reg 1 " i $end
+$scope module dut $end
+$var wire 1 " i $end
+$var wire 1 ! o $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0"
+1!
+$end
+#10000
+0!
+1"
+#20000
