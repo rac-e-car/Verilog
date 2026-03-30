@@ -1,0 +1,53 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x59d6793c0650 .scope module, "oe_checker_tb" "oe_checker_tb" 2 1;
+ .timescale 0 0;
+v0x59d6793d3250_0 .var "a", 8 0;
+v0x59d6793d3340_0 .net "even", 0 0, L_0x59d6793d36f0;  1 drivers
+v0x59d6793d3410_0 .var/i "i", 31 0;
+v0x59d6793d34e0_0 .net "odd", 0 0, L_0x59d6793d35b0;  1 drivers
+S_0x59d6793c07e0 .scope module, "dut" "oe_checker" 2 6, 3 1 0, S_0x59d6793c0650;
+ .timescale 0 0;
+    .port_info 0 /INPUT 9 "a";
+    .port_info 1 /OUTPUT 1 "odd";
+    .port_info 2 /OUTPUT 1 "even";
+v0x59d6793c0a10_0 .net "a", 8 0, v0x59d6793d3250_0;  1 drivers
+v0x59d6793d3070_0 .net "even", 0 0, L_0x59d6793d36f0;  alias, 1 drivers
+v0x59d6793d3130_0 .net "odd", 0 0, L_0x59d6793d35b0;  alias, 1 drivers
+L_0x59d6793d35b0 .reduce/xor v0x59d6793d3250_0;
+L_0x59d6793d36f0 .reduce/xnor v0x59d6793d3250_0;
+    .scope S_0x59d6793c0650;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "oe_checker.vcd" {0 0 0};
+    %vpi_call 2 10 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x59d6793c0650 {0 0 0};
+    %vpi_call 2 12 "$monitor", "At time = %0t -- | a = %b | odd = %b, even = %b", $time, v0x59d6793d3250_0, v0x59d6793d34e0_0, v0x59d6793d3340_0 {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x59d6793d3410_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v0x59d6793d3410_0;
+    %cmpi/s 10, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %vpi_func 2 15 "$urandom_range" 32, 32'sb00000000000000000000000000000000, 32'sb00000000000000000000000000000111 {0 0 0};
+    %pad/u 9;
+    %store/vec4 v0x59d6793d3250_0, 0, 9;
+    %delay 10, 0;
+    %load/vec4 v0x59d6793d3410_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0x59d6793d3410_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "oe_checker_tb.v";
+    "oe_checker.v";

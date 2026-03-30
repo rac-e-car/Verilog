@@ -1,0 +1,48 @@
+$date
+	Mon Mar 30 12:04:42 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module switch_and_tb $end
+$var wire 1 ! btw $end
+$var wire 1 " com $end
+$var wire 1 # y $end
+$var reg 1 $ a $end
+$var reg 1 % b $end
+$scope module dut $end
+$var wire 1 $ a $end
+$var wire 1 % b $end
+$var wire 1 & btw $end
+$var wire 1 ' com $end
+$var wire 1 ( gnd $end
+$var wire 1 ) vdd $end
+$var wire 1 # y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1)
+0(
+1'
+1&
+1%
+0$
+z#
+z"
+z!
+$end
+#10
+z&
+0%
+z#
+z'
+1$
+#20
