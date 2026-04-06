@@ -1,5 +1,5 @@
 module oe_checker_tb;
-reg [8:0] a;
+reg [7:0] a;
 wire odd, even;
 integer i;
 
