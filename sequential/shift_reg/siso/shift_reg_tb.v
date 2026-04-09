@@ -24,7 +24,7 @@ initial begin
      mode=0;
     repeat(6)@(posedge clk);
         
-      d =1;
+      d =0;
      mode=1;
     repeat(6)@(posedge clk);
 

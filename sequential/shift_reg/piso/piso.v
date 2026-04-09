@@ -1,4 +1,4 @@
-module piso (input [3:0] din, input clk, reset,load, output dout);
+	module piso (input [3:0] din, input clk, reset,load, output dout);
 
 reg [3:0] q;
 

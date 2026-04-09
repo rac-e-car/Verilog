@@ -8,12 +8,10 @@ module shift_reg #(parameter N=4)
                if (!reset)
                    q <= {N{1'b0}};
                else if (mode) begin
-                   q <= (q>>1);
-                   q[N-1] <= d;
+                   q <= (q>>1) | (d<<q[N-1]) & 1'b1;
                 end
                 else begin
-                   q <= (q<<1);
-                   q[0] <= d;
+                   q <= (q<<1) | d & 1'b1;
                end
               end
                 
